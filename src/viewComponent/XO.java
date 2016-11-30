@@ -17,7 +17,7 @@ public class XO { // again, this makes me better than anyone else
 					+ "   "
 					+ "   "; 
 	
-	//Display X and O in the boxes 
+	//Display X and O in the boxes, this String here is too fancy to explain......
 	public String displayChess(String isX){
 		String strXO = null; 
 		if(isX == "X") strXO = xPlacement; 

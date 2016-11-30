@@ -10,11 +10,13 @@ public class Score {
 	private int player1Score = 0;
 	private int player2Score = 0;
 
-	public void singlePlayer(){ // mode for human v.s. computer, display on the game board 
-		
+	public String singlePlayer(boolean isSingle){ // mode for human v.s. computer, display on the game board 
+		String strSinglePlayer = "Computer Scores: " + nPCScore + "\t" + "Your Scores: " + singleScore; 
+		return strSinglePlayer; 
 	}
-	public void twoPlayers(){ // mode for two human players, display on the game board 
-		
+	public String twoPlayers(boolean isSingle){ // mode for two human players, display on the game board 
+		String strDoublePlayer = "Player 1 Scores: " + player1Score + "\t" + "Player 2 Scores: " + player2Score; 
+		return strDoublePlayer; 
 	}
 	
 	// boring getter setter

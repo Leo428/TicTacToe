@@ -1,9 +1,16 @@
 package model;
 
+import viewComponent.FieldInfo;
+import viewComponent.Score;
 import viewComponent.XO;
+import java.util.Scanner; 
 
 public class GeneralRules {
+	Score score = new Score();
 	XO xo = new XO(); 
+	FieldInfo fieldinfo = new FieldInfo();
+	Scanner scanner = new Scanner(System.in);
+	
 	private String[] chessXO = {"empty","empty","empty","empty","empty","empty","empty","empty","empty"};
 	private String box(){
 		String strBox = 
@@ -39,10 +46,10 @@ public class GeneralRules {
 						"|                                                              |\n" +
 						"----------------------------------------------------------------\n");
 	}
-	public void drawField(){
+	public void drawField(boolean isMode){
 		System.out.print(
 						"----------------------------------------------------------------\n" +
-						"|                                                              |\n" + // THIS LINE DISPLAYS GAME MODE
+						"|"+ fieldinfo.modeDisplay(isMode) +                                                              "|\n" + // THIS LINE DISPLAYS GAME MODE
 						"|                                                              |\n" + // THIS LINE DISPLAYS TURNS 
 						"|"+ box() + // START OF THE BOX 9*9 (3*3 EACH)
 						"|                                                              |\n" +
@@ -50,4 +57,12 @@ public class GeneralRules {
 						"----------------------------------------------------------------\n"
 				);
 	}
+	public void greeting(){
+		System.out.println("Welcome, here is a Chinese Casino, "
+				+ "you will be playing Tic Tac Toe and lose all your money!"); 
+	}
+	public void chooseMode(){
+		System.out.println("Please Choose the game mode, Single Player or Two Players");
+		scanner.nextLine();  // Receive user input, need a variable. 
+	} 
 }
