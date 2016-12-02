@@ -27,23 +27,30 @@ public class GameController {
 		else isSingleMode = false; 
 		generalRules.invalidateView();
 	}
-	public void moves(){
+	public void moves(){ // in here, I prevent user from putting in weird things, 
+		// and mock on them!!! I also need to prevent them from putting in 0 
 		int inputPosition; 
-		try {
+		if(scanner.hasNextInt()){
 			inputPosition = scanner.nextInt(); 
-			if(gameMap[inputPosition -1]){
-				System.out.println("You moron!");
-			};
-			if(!gameMap[inputPosition -1]){  
-				generalRules.putChess(generalRules.roundFirst, inputPosition);
-				gameMap[inputPosition -1] = true; 
-				generalRules.changeTurn();
-				generalRules.invalidateView();
+			if(inputPosition == 0){ // stop user from putting in 0! 
+				System.out.println("Stop being stupid! No BUG!");
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
+			else{
+				if(gameMap[inputPosition -1]){
+					System.out.println("You moron!");
+				};
+				if(!gameMap[inputPosition -1]){  
+					generalRules.putChess(generalRules.roundFirst, inputPosition);
+					gameMap[inputPosition -1] = true; 
+					generalRules.changeTurn();
+					generalRules.invalidateView();
+				}
+			}
 		}
-		System.out.println("You are Invalid! Moron!"); 
+		else{
+			System.out.println("You are invalid! Moron!");
+			scanner.next(); 
+		}
 	}
 	public void singlePlayerGame(){
 		
