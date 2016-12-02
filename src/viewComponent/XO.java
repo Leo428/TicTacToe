@@ -8,13 +8,13 @@ public class XO { // again, this makes me better than anyone else
 	public String xPlacement(int x){
 		return
 				  "   "
-				+ " X "
+				+ " X"
 				+ "    "; 
 	}
 	public String oPlacement(int x) {
 		return
 				  "   "
-				+ " O "
+				+ " O"
 				+ "   "; 
 	}
 	private int[] position = {1,2,3,4,5,6,7,8,9};

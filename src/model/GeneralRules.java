@@ -3,10 +3,7 @@ package model;
 import viewComponent.FieldInfo;
 import viewComponent.Score;
 import viewComponent.XO;
-
 import java.util.Scanner; 
-
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 public class GeneralRules {
 	Score score = new Score();
@@ -14,9 +11,9 @@ public class GeneralRules {
 	FieldInfo fieldinfo = new FieldInfo();
 	Scanner scanner = new Scanner(System.in); // init method from View Component
 	
-	public boolean roundFirst = true; 
-	public String chooseWord = null; 
-	public boolean isSingle = true; 
+	public boolean roundFirst = true; // whose round? 
+	public String chooseWord = null; // str to choose mode 
+	public boolean isSingle = true; // mode single 
 	private String[] chessXO = // String for the chess 
 			{"empty","empty","empty",
 			 "empty","empty","empty",
@@ -82,14 +79,18 @@ public class GeneralRules {
 	public void chooseMode(){ // choose game mode 
 		System.out.println("Please Choose the game mode, Single or Two");
 		chooseWord = scanner.nextLine();  // Receive user input, need a variable. 
+		if(chooseWord.equalsIgnoreCase("Single")) isSingle = true;
+		else isSingle = false; 
 	} 
 	public void invalidateView(){ // refreshing field 
 		drawField(isSingle, roundFirst);
-		if(roundFirst) roundFirst = false;
-		else roundFirst = true;
 	}
 	public void putChess(boolean turn, int position){ // need whose turn and position putting the chess 
 		if(turn) chessXO[position - 1] = "O"; 
 		else chessXO[position -1] = "X";
+	}
+	public void changeTurn(){
+		if(roundFirst) roundFirst = false;
+		else roundFirst = true;
 	}
 }
