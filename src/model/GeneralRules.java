@@ -14,12 +14,16 @@ public class GeneralRules {
 	public boolean roundFirst = true; // whose round? 
 	public String chooseWord = null; // str to choose mode 
 	public boolean isSingle = true; // mode single 
-	private String[] chessXO = // String for the chess 
-			{"empty","empty","empty",
-			 "empty","empty","empty",
-			 "empty","empty","empty"};
+	private int[] chessXO = // String for the chess 
+			{2,3,4,
+			 5,6,7,
+			 8,9,10};
+	public boolean[] gameMap = // false means no chess, true means there is a chess
+		{false, false, false, 
+		 false, false, false,
+		 false, false, false};
 	private String box(){ // String for the box, contain chess
-		String strBox = 
+		return  
 			"-----" + "-----" + "-------------" 																 +"                                       |\n" +																   
 			"|"+ xo.displayChess(chessXO[0], 0) + xo.displayChess(chessXO[1], 1) + xo.displayChess(chessXO[2], 2) +"                                   |\n" +
 			"|-----" + "-----" + "-------------" 															 	 +"                                       |\n" +
@@ -28,10 +32,9 @@ public class GeneralRules {
 			"|"+ xo.displayChess(chessXO[6], 6) + xo.displayChess(chessXO[7], 7) + xo.displayChess(chessXO[8], 8) +"                                   |\n" +
 			"|-----" + "-----" + "-------------" 																 +"                                       |\n"
 			;
-		return strBox; 
 	} 
 	private String initBox(){ // String for init box, display at the very start 
-		String strBox = 
+		return  
 			"-----" + "-----" + "-------------" 																 +"                                       |\n" +																   
 			"|"+ xo.empty(0) + xo.empty(1) + xo.empty(2) +"                                   |\n" +
 			"|-----" + "-----" + "-------------" 															 	 +"                                       |\n" +
@@ -40,7 +43,6 @@ public class GeneralRules {
 			"|"+ xo.empty(6) + xo.empty(7) + xo.empty(8) +"                                   |\n" +
 			"|-----" + "-----" + "-------------" 																 +"                                       |\n"
 			;
-		return strBox; 
 	}
 	public String turnsString(boolean isMode, boolean isFirst){ // players' turns String 
 		String strTurn = null; 
@@ -49,6 +51,23 @@ public class GeneralRules {
 		else if(!isMode && isFirst) strTurn =  fieldinfo.player1String;
 		else if(!isMode && !isFirst) strTurn = fieldinfo.player2String;
 		return strTurn;
+	}
+	public boolean judgement(){/**
+		 * here is going to be a very complicated method to check 
+		 * if anyone win or not
+		 */
+		boolean isWin = false; // win or not?
+		if(chessXO[0] == chessXO[3] && chessXO[3] == chessXO[6]) isWin = true;
+		if(chessXO[1] == chessXO[4] && chessXO[4] == chessXO[7]) isWin = true; 
+		if(chessXO[2] == chessXO[5] && chessXO[5] == chessXO[8]) isWin = true; 
+		
+		if(chessXO[0] == chessXO[1] && chessXO[1] == chessXO[2]) isWin = true; 
+		if(chessXO[3] == chessXO[4] && chessXO[4] == chessXO[5]) isWin = true; 
+		if(chessXO[6] == chessXO[7] && chessXO[7] == chessXO[8]) isWin = true; 
+		
+		if(chessXO[0] == chessXO[4] && chessXO[4] == chessXO[8]) isWin = true; 
+		if(chessXO[6] == chessXO[4] && chessXO[4] == chessXO[2]) isWin = true; 
+		return isWin; 
 	}
 	
 	public void initField(){ // init field, contain init box and empty game board 
@@ -86,10 +105,10 @@ public class GeneralRules {
 		drawField(isSingle, roundFirst);
 	}
 	public void putChess(boolean turn, int position){ // need whose turn and position putting the chess 
-		if(turn) chessXO[position - 1] = "O"; 
-		else chessXO[position -1] = "X";
+		if(turn) chessXO[position - 1] = 0; 
+		else chessXO[position -1] = 1;
 	}
-	public void changeTurn(){
+	public void changeTurn(){ // change the round turn status 
 		if(roundFirst) roundFirst = false;
 		else roundFirst = true;
 	}

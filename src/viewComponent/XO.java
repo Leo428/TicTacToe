@@ -1,17 +1,15 @@
 package viewComponent;
-
-
 /*
  * This is for displaying X and O
  */
 public class XO { // again, this makes me better than anyone else
-	public String xPlacement(int x){
+	public String xPlacement(){
 		return
 				  "   "
 				+ " X"
 				+ "    "; 
 	}
-	public String oPlacement(int x) {
+	public String oPlacement() {
 		return
 				  "   "
 				+ " O"
@@ -26,10 +24,10 @@ public class XO { // again, this makes me better than anyone else
 	} // String contain an empty field and position hint
 					  
 	//Display X and O in the boxes, this String here is too fancy to explain......
-	public String displayChess(String isX, int x){
+	public String displayChess(int isX, int x){// 0 = O, 1 = X
 		String strXO = null; 
-		if(isX == "X") strXO = xPlacement(x); 
-		else if(isX == "O") strXO = oPlacement(x);
+		if(isX == 1) strXO = xPlacement(); 
+		else if(isX == 0) strXO = oPlacement();
 		else strXO = empty(x);
 		return strXO;
 	}
