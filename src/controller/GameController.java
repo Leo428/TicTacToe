@@ -55,6 +55,7 @@ public class GameController {
 					isWin = generalRules.judgement(); 
 					if(isWin) {
 						generalRules.invalidateView();
+//						reset();
 						System.out.println("You Win");
 					}
 					else if(!isComplete() && !isWin){
@@ -63,7 +64,7 @@ public class GameController {
 					}
 					else if(isComplete() && !isWin){
 						generalRules.invalidateView();
-						reset();
+//						reset();
 						System.out.println("Draw! The only way to win is to not play!");
 					}
 				}
@@ -90,6 +91,7 @@ public class GameController {
 			isWin = generalRules.judgement();
 			if(isWin) {
 				generalRules.invalidateView();
+//				reset();
 				System.out.println("You lost");
 			}
 			else if(!isComplete() && !isWin){
@@ -98,7 +100,7 @@ public class GameController {
 			}
 			else if(isComplete() && !isWin){
 				generalRules.invalidateView();
-				reset();
+//				reset();
 				System.out.println("Draw! The only way to win is to not play!");
 			}
 		}
@@ -118,14 +120,15 @@ public class GameController {
 			moves();
 		}
 	}
-	public void reset(){
-		for (int i = 0; i < generalRules.gameMap.length; i++) {
-			generalRules.gameMap[i] = false; 
-		}
-		isWin = false; 
-		isSingleMode = true; 
-		nPCSpot = 5; 
-		generalRules.roundFirst = true;
-		generalRules.isSingle = true; 
-	}
+//	public void reset(){
+//		generalRules.resetGame();
+//		for (int i = 0; i < generalRules.gameMap.length; i++) {
+//			generalRules.gameMap[i] = false; 
+//		}
+//		isWin = false; 
+//		isSingleMode = true; 
+//		nPCSpot = 5; 
+//		generalRules.roundFirst = true;
+//		generalRules.isSingle = true;
+//	}
 }

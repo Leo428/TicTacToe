@@ -6,20 +6,20 @@ public class XO { // again, this makes me better than anyone else
 	public String xPlacement(){
 		return
 				  "   "
-				+ " X"
+				+ " X |"
 				+ "    "; 
 	}
 	public String oPlacement() {
 		return
 				  "   "
-				+ " O"
+				+ " O |"
 				+ "   "; 
 	}
 	private int[] position = {1,2,3,4,5,6,7,8,9};
 	public String empty(int x){
 		return 	  
 				  "   "
-				+ " " + position[x] + " "
+				+ " " + position[x] + " |"
 				+ "   "; 
 	} // String contain an empty field and position hint
 					  

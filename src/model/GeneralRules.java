@@ -24,12 +24,12 @@ public class GeneralRules {
 		 false, false, false};
 	private String box(){ // String for the box, contain chess
 		return  
-			"-----" + "-----" + "-------------" 																 +"                                       |\n" +																   
-			"|"+ xo.displayChess(chessXO[0], 0) + xo.displayChess(chessXO[1], 1) + xo.displayChess(chessXO[2], 2) +"                                   |\n" +
+			"-----------------------" 																 +"                                       |\n" +																   
+			"|"+ xo.displayChess(chessXO[0], 0) + xo.displayChess(chessXO[1], 1) + xo.displayChess(chessXO[2], 2) +"                                   \n" +
 			"|-----" + "-----" + "-------------" 															 	 +"                                       |\n" +
-			"|"+ xo.displayChess(chessXO[3], 3) + xo.displayChess(chessXO[4], 4) + xo.displayChess(chessXO[5], 5) +"                                   |\n" +
+			"|"+ xo.displayChess(chessXO[3], 3) + xo.displayChess(chessXO[4], 4) + xo.displayChess(chessXO[5], 5) +"                                   \n" +
 			"|-----" + "-----" + "-------------" 																 +"                                       |\n" +
-			"|"+ xo.displayChess(chessXO[6], 6) + xo.displayChess(chessXO[7], 7) + xo.displayChess(chessXO[8], 8) +"                                   |\n" +
+			"|"+ xo.displayChess(chessXO[6], 6) + xo.displayChess(chessXO[7], 7) + xo.displayChess(chessXO[8], 8) +"                                   \n" +
 			"|-----" + "-----" + "-------------" 																 +"                                       |\n"
 			;
 	} 
@@ -112,4 +112,11 @@ public class GeneralRules {
 		if(roundFirst) roundFirst = false;
 		else roundFirst = true;
 	}
+//	public void resetGame(){
+//		roundFirst = true; 
+//		isSingle = true; 
+//		for (int i = 0; i < chessXO.length; i++) {
+//			chessXO[i] = 2 + i;
+//		}
+//	}
 }
